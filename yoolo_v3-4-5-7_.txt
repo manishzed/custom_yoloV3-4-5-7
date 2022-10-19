@@ -1,0 +1,90 @@
+
+When it comes to deep learning-based object detection, there are three primary object detectors you’ll encounter:
+
+1> R-CNN and their variants, including the original R-CNN, Fast R- CNN, and Faster R-CNN
+2> Single Shot Detector (SSDs)
+3> YOLO
+R-CNNs are one of the first deep learning-based object detectors and are an example of a two-stage detector.
+
+
+While R-CNNs tend to be very accurate, the biggest problem with the R-CNN family of networks is their speed — they were incredibly slow, obtaining only 5 FPS on a GPU.
+
+To help increase the speed of deep learning-based object detectors, both Single Shot Detectors (SSDs) and YOLO use a one-stage detector strategy.
+
+These algorithms treat object detection as a regression problem, taking a given input image and simultaneously learning bounding box coordinates and corresponding class label probabilities.
+
+In general, single-stage detectors tend to be less accurate than two-stage detectors but are significantly faster.
+
+YOLO is a great example of a single stage detector.
+
+The YOLOv3 object detector pre-trained (on the COCO dataset) model files. These were trained by the Darknet team.
+
+
+1> faster Rcnn:
+
+
+As we know, the Faster R-CNN/Mask R-CNN architectures leverage a Region Proposal Network (RPN) to generate regions of an image that potentially contain an object.
+
+Each of these regions is ranked based on their “objectness score” (i.e., how likely it is that a given region could potentially contain an object) 
+and then the top N most confident objectness regions are kept.
+
+
+frozen_inference_graph.pb : The Mask R-CNN model weights. The weights are pre-trained on the COCO dataset.
+mask_rcnn_inception_v2_coco_2018_01_28.pbtxt : The Mask R-CNN model configuration. If you’d like to build + train your own model on your own annotated data, 
+object_detection_classes_coco.txt : All 90 classes are listed in this text file, one per line. Open it in a text editor to see what objects our model can recognize.
+
+
+
+
+2> yolo:
+
+YOLO use a one-stage detector strategy.
+
+These algorithms treat object detection as a regression problem, taking a given input image and simultaneously learning bounding box coordinates and corresponding class label probabilities.
+
+In general, single-stage detectors tend to be less accurate than two-stage detectors but are significantly faster.
+
+YOLO is a great example of a single stage detector.
+
+The YOLOv3 object detector pre-trained (on the COCO dataset) model files. These were trained by the Darknet team.
+
+
+
+To load YOLO from disk take advantage of OpenCV’s DNN function called cv2.dnn.readNetFromDarknet . This function requires both a configPath and weightsPath
+
+
+
+3> SSD:
+
+
+If we combine both the MobileNet architecture and the Single Shot Detector (SSD) framework, we arrive at a fast, efficient deep learning-based method to object detection.
+
+The MobileNet SSD was first trained on the COCO dataset (Common Objects in Context) and was then fine-tuned on PASCAL VOC reaching 72.7% mAP (mean average precision).
+
+We can therefore detect 20 objects in images (+1 for the background class), including airplanes, bicycles, birds, boats, bottles, buses, cars, cats, chairs, cows, dining tables, dogs, horses, motorbikes, people, potted plants, sheep, sofas, trains, and tv monitors.
+
+ the MobileNet SSD + deep neural network (dnn ) module in OpenCV to build our object detector.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
